@@ -39,7 +39,7 @@ print("-------------------------")
 # I used Xpert Learning Assitant to help me correct my errors as well as build the for statement below:
 for candidate, count in candidate_votes.items(): 
     percentage = (count / sumVotes) * 100
-    print(f'{candidate}: {percentage:.3f}% ({count} votes)')
+    print(f'{candidate}: {percentage:.2f}% ({count} votes)')
 print("-------------------------")
 winner = max(candidate_votes, key=candidate_votes.get)
 print(f'Winner: {winner}')
