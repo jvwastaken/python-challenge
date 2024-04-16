@@ -27,8 +27,12 @@ with open(csvpath) as csvfile:
    
    
     average_change = sum(Change)/len(Change)
+    max_change_index = Change.index(max(Change))
+    max_change_month = months[max_change_index + 1]
 
-        
+    min_change_index = Change.index(min(Change))
+    min_change_month = months[min_change_index + 1]
+
     print("Financial Analysis")
     print("------------------------------------------------------------------------")
     print("Total Months: ", len(months))
@@ -37,3 +41,5 @@ with open(csvpath) as csvfile:
     print("Total: ","$", sum(OverallTotal))
     # I got round(), from W3Schools
     print("Average Change: ","$", round(average_change,2))
+    print("Greatest Increase in Profits:", max_change_month, "($", max(Change), ")")
+    print("Greatest Decrease in Profits:", min_change_month, "($", min(Change), ")")
