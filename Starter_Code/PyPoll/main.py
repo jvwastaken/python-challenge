@@ -27,20 +27,21 @@ with open(csvpath) as csvfile:
             candidate_votes[candidate] = 1
         sumVotes += 1
 
+output_folder = 'Resources'
+with open (os.path.join(output_folder, 'Election Results.txt'), 'w') as f:
 
+    print("Election Results",file=f)
 
-print("Election Results")
+    print("-------------------------",file=f)
 
-print("-------------------------")
+    print("Total Votes: ",len(totalBallots),file=f)
 
-print("Total Votes: ",len(totalBallots))
-
-print("-------------------------")
+    print("-------------------------",file=f)
 # I used Xpert Learning Assitant to help me correct my errors as well as build the for statement below:
-for candidate, count in candidate_votes.items(): 
-    percentage = (count / sumVotes) * 100
-    print(f'{candidate}: {percentage:.2f}% ({count} votes)')
-print("-------------------------")
-winner = max(candidate_votes, key=candidate_votes.get)
-print(f'Winner: {winner}')
-print("-------------------------")
+    for candidate, count in candidate_votes.items(): 
+        percentage = (count / sumVotes) * 100
+        print(f'{candidate}: {percentage:.2f}% ({count} votes)',file=f)
+    print("-------------------------",file=f)
+    winner = max(candidate_votes, key=candidate_votes.get)
+    print(f'Winner: {winner}',file=f)
+    print("-------------------------",file=f)

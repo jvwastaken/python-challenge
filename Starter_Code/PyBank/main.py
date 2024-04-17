@@ -33,13 +33,16 @@ with open(csvpath) as csvfile:
     min_change_index = Change.index(min(Change))
     min_change_month = months[min_change_index + 1]
 
-    print("Financial Analysis")
+output_folder = 'Resources'
+with open (os.path.join(output_folder, 'Financial Analysis.txt'), 'w') as f:
+
+    print("Financial Analysis", file=f)
     print("------------------------------------------------------------------------")
-    print("Total Months: ", len(months))
+    print("Total Months: ", len(months),file=f)
 
     # I got the sum() command from StackOverflow
-    print("Total: ","$", sum(OverallTotal))
+    print("Total: ","$", sum(OverallTotal),file=f)
     # I got round(), from W3Schools
-    print("Average Change: ","$", round(average_change,2))
-    print("Greatest Increase in Profits:", max_change_month, "($", max(Change), ")")
-    print("Greatest Decrease in Profits:", min_change_month, "($", min(Change), ")")
+    print("Average Change: ","$", round(average_change,2),file=f)
+    print("Greatest Increase in Profits:", max_change_month, "($", max(Change), ")",file=f)
+    print("Greatest Decrease in Profits:", min_change_month, "($", min(Change), ")",file=f)
